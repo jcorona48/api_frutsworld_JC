@@ -5,8 +5,8 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import mysql from 'mysql'
-import {pool} from "./db.js"
-
+import ProductosRoutes from './routes/Productos.routes.js'
+import IndexRoutes from './routes/index.routes.js'
 let con = mysql.createConnection({
     host: keys.msqlHost,
     user: keys.msqlUser,
@@ -24,22 +24,15 @@ con.connect(function(err) {
 
 const app = express();
 
-app.get("/Productos/all", async (req, res) => {
-  const [result] = await pool.query("SELECT 1 + 1 as result");
-  res.json(result[0]);
-});
+app.use(express.json());
+
+app.use(IndexRoutes);
+
+app.use('/api',ProductosRoutes);
 
 app.listen(5000, (err) => {
   console.log("Listening");
 });
-
-app.get("/Productos", (req, res) => {res.send("Obteniendo Productos"); });
-
-app.post("/Productos", (req, res) => {res.send("Creando Empleados"); });
-
-app.put("/Productos", (req, res) => {res.send("Actualizando Productos"); });
-
-app.delete("/Productos", (req, res) => {res.send("Eliminando Productos"); });
 
 console.log("klk");
 
