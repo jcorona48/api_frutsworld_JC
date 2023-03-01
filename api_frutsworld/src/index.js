@@ -12,7 +12,14 @@ app.use(IndexRoutes);
 
 app.use('/api',ProductosRoutes);
 
-app.use('/api',DestinosRoutes)
+app.use('/api',DestinosRoutes);
+
+app.use((req, res, next) => {
+  res.status(404).json({
+    message: 'Ruta no Encontrada'
+  });
+});
+
 
 app.listen(5000, (err) => {
   console.log("Listening");
