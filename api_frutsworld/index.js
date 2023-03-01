@@ -7,6 +7,8 @@ const cors = require("cors");
 
 const app = express();
 
+console.log("SIIIU");
+
 app.listen(5000, (err) => {
   console.log("Listening");
 });

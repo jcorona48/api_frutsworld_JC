@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3'
 services:
   db_fw:
     image: 'mariadb:10.11.2'
@@ -15,6 +15,7 @@ services:
     build:
       dockerfile: Dockerfile.dev
       context: ./api_frutsworld
+    command: npm run dev
     volumes:
       - /app/node_modules
       - ./api_frutsworld:/app

@@ -7,7 +7,11 @@
     "body-parser": "*"
   },
   "scripts": {
-    "dev": "nodemon",
-    "start": "node index.js"
+    "dev": "nodemon -L --watch index.js",
+    "start": "node index.js",
+    "start:legacy": "nodemon -L --watch index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
