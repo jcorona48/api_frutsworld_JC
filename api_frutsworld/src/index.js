@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.use(IndexRoutes);
 
+
 app.use('/api',ProductosRoutes);
 
 app.use('/api',DestinosRoutes);
