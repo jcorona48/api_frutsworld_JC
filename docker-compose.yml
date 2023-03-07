@@ -27,5 +27,14 @@ services:
       - MSQLDATABASE=fw_dbase
       - MSQLPASSWORD=password
       - MSQLPORT=3306
+  fw_web:
+    build: 
+      dockerfile: Dockerfile.web
+      context: ./React-Web
+    volumes:
+      - /app/node_modules
+      - ./React-Web/:/app
+    ports:
+      - "5173:5173"
 volumes:
   mslq_vol:
