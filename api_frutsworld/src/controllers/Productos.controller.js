@@ -18,7 +18,7 @@ export const getProducto = async (req, res) => {
 
 export const getProductos = async (req, res) => {
     const [rows] = await pool.query('select * from T_Producto');
-    res.send([rows]); 
+    res.send(rows); 
 };
 
 export const createProductos = async (req, res) => {

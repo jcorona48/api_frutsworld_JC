@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
+    host: true,
+    strictPort: true,
+    port: 5173,
     watch: {
       // Habilitar la detección de cambios en la carpeta raíz del proyecto
       // para reiniciar el servidor automáticamente

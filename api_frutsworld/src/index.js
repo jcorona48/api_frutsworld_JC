@@ -1,10 +1,15 @@
 // Express App Setup
+import cors from 'cors'
 import express from 'express'
 import ProductosRoutes from './routes/Productos.routes.js'
 import DestinosRoutes from './routes/DestinosExportacion.routes.js'
 import IndexRoutes from './routes/index.routes.js'
 
 const app = express();
+const corsOptions = {
+  origin: 'http://localhost:5173'
+};
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
